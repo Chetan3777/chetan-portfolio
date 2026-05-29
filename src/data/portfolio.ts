@@ -21,7 +21,7 @@ export const profile = {
   email: "chetanjha78@gmail.com",
   linkedin: "https://linkedin.com/in/chetan-jha-9ba61b16b",
   github: "https://github.com/Chetan3777",
-  resumeUrl: "/resume.pdf", // place resume.pdf in /public to enable download
+  resumeUrl: "https://drive.google.com/uc?export=download&id=1fQ-BO9FHUJCqGaimUkszupzRcf-rmJ5A",
   tagline:
     "I build high-traffic Java backend systems — and the LLM-powered agents that run on top of them.",
   bio: [
