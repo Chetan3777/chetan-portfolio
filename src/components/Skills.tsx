@@ -4,9 +4,10 @@ import SectionHeading from "./ui/SectionHeading";
 
 export default function Skills() {
   return (
-    <section id="skills" className="section">
+    <section id="skills" className="section section-light">
       <div className="max-w-content">
         <SectionHeading
+          variant="light"
           eyebrow="Tech Stack"
           title={
             <>

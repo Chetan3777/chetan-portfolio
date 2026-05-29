@@ -6,9 +6,10 @@ import SectionHeading from "./ui/SectionHeading";
 
 export default function Projects() {
   return (
-    <section id="projects" className="section">
+    <section id="projects" className="section section-dark">
       <div className="max-w-content">
         <SectionHeading
+          variant="dark"
           eyebrow="Selected Work"
           title={
             <>
@@ -16,7 +17,7 @@ export default function Projects() {
               <span className="italic-accent">end to end.</span>
             </>
           }
-          description="A platform I built from scratch and a banking migration that's still humming in production."
+          description="Self-initiated platform work — LLM agents, MCP servers, and a full RAG pipeline built from scratch."
         />
 
         <div
@@ -32,11 +33,11 @@ export default function Projects() {
         </div>
 
         {/* Soft hint for visitors: more work exists but is private */}
-        <p className="mt-10 text-center text-sm text-fg-muted">
+        <p className="mt-10 text-center text-sm text-fg-inverse-muted">
           More work lives in private repos.{" "}
           <a
             href="#contact"
-            className="font-semibold text-fg underline-offset-4 hover:text-brand hover:underline"
+            className="font-semibold text-fg-inverse underline-offset-4 hover:text-brand hover:underline"
           >
             Get in touch
           </a>{" "}
@@ -82,18 +83,18 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       onMouseLeave={onMouseLeave}
       className={`group relative flex h-full flex-col overflow-hidden rounded-3xl border p-7 transition-all duration-200 sm:p-8 ${
         featured
-          ? "border-brand/40 bg-gradient-to-br from-brand/10 via-cream-50 to-cream-50 shadow-soft-lg"
-          : "border-line bg-cream-50 shadow-soft hover:shadow-soft-lg"
+          ? "border-brand/40 bg-gradient-to-br from-brand/15 via-ink-800 to-ink-800"
+          : "border-line-dark bg-ink-800 hover:border-brand/20"
       }`}
     >
       {/* Header — aligns across cards */}
       <div className="flex min-h-[28px] items-start justify-between gap-4">
-        <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-dim">
+        <div className="flex items-center gap-3 font-mono text-[10px] uppercase tracking-[0.22em] text-fg-inverse-muted">
           <span>0{index + 1}</span>
           {project.badge && (
             <>
               <span aria-hidden>·</span>
-              <span className="text-fg-muted">{project.badge}</span>
+              <span className="text-fg-inverse-muted">{project.badge}</span>
             </>
           )}
         </div>
@@ -107,22 +108,22 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
       </div>
 
       {/* Title — fixed top alignment */}
-      <h3 className="mt-4 display-h text-3xl text-fg sm:text-4xl">
+      <h3 className="mt-4 display-h text-3xl text-fg-inverse sm:text-4xl">
         {project.name}
       </h3>
 
       {/* Blurb — uniform height for visual alignment */}
-      <p className="mt-3 min-h-[4.5rem] text-[15px] leading-relaxed text-fg-muted sm:text-base">
+      <p className="mt-3 min-h-[4.5rem] text-[15px] leading-relaxed text-fg-inverse-muted sm:text-base">
         {project.blurb}
       </p>
 
-      <ul className="mt-2 space-y-2.5 text-sm text-fg sm:text-[15px]">
+      <ul className="mt-2 space-y-2.5 text-sm text-fg-inverse sm:text-[15px]">
         {project.bullets.map((b) => (
           <li key={b} className="flex gap-3">
             <span
               aria-hidden
               className={`mt-[9px] inline-block h-1.5 w-1.5 shrink-0 rounded-full ${
-                featured ? "bg-brand" : "bg-fg/60"
+                featured ? "bg-brand" : "bg-fg-inverse-muted"
               }`}
             />
             <span>{b}</span>
@@ -132,7 +133,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       <div className="mt-6 flex flex-wrap gap-2">
         {project.stack.map((s) => (
-          <span key={s} className={featured ? "chip-brand" : "chip"}>
+          <span key={s} className="chip-dark">
             {s}
           </span>
         ))}
@@ -140,13 +141,13 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
 
       {/* Footer pushed to bottom for cross-card alignment */}
       {hasActions && (
-        <div className="mt-auto flex items-center gap-3 border-t border-line pt-5">
+        <div className="mt-auto flex flex-col gap-3 border-t border-line-dark pt-5 sm:flex-row sm:items-center">
           {project.github && (
             <a
               href={project.github}
               target="_blank"
               rel="noreferrer noopener"
-              className="btn-secondary text-xs"
+              className="btn-ghost-dark w-full justify-center text-xs sm:w-auto"
               aria-label={`${project.name} on GitHub`}
             >
               <Github className="h-3.5 w-3.5" />

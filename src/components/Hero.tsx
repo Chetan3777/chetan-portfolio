@@ -12,7 +12,7 @@ export default function Hero() {
   return (
     <section
       id="top"
-      className="relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden pt-36 pb-16 container-px sm:pt-32"
+      className="section-dark relative isolate flex min-h-[100svh] flex-col justify-center overflow-hidden pt-36 pb-16 container-px sm:pt-32"
     >
       <div className="max-w-content relative w-full">
         <motion.div
@@ -25,13 +25,13 @@ export default function Hero() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.5 }}
-            className="inline-flex items-center gap-2 rounded-full border border-line bg-cream-50 px-4 py-1.5 shadow-soft"
+            className="inline-flex items-center gap-2 rounded-full border border-line-dark bg-ink-800 px-4 py-1.5"
           >
             <span className="relative inline-flex h-1.5 w-1.5">
-              <span className="absolute inset-0 animate-ping rounded-full bg-emerald-500/60" />
-              <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-emerald-500" />
+              <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/60" />
+              <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
             </span>
-            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-muted">
+            <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-fg-inverse-muted">
               {profile.heroPill}
             </span>
           </motion.div>
@@ -40,7 +40,7 @@ export default function Hero() {
           <motion.h1
             variants={fadeUp}
             transition={{ duration: 0.7 }}
-            className="mt-7 display-h text-[clamp(2.6rem,8.5vw,6.5rem)] text-fg"
+            className="mt-7 display-h text-[clamp(2.6rem,8.5vw,6.5rem)] text-fg-inverse"
           >
             <span className="block">
               I'm <span className="italic-accent">Chetan</span>,
@@ -52,10 +52,10 @@ export default function Hero() {
           <motion.div
             variants={fadeUp}
             transition={{ duration: 0.6 }}
-            className="mt-6 flex flex-wrap items-baseline justify-center gap-x-2 font-mono text-sm text-fg-muted sm:text-base"
+            className="mt-6 flex flex-wrap items-baseline justify-center gap-x-2 font-mono text-sm text-fg-inverse-muted sm:text-base"
           >
             <span className="text-brand">›</span>
-            <span className="text-fg">
+            <span className="text-fg-inverse">
               <Typewriter words={profile.roles} />
             </span>
           </motion.div>
@@ -70,7 +70,7 @@ export default function Hero() {
             transition={{ duration: 0.6, delay: 0.6 }}
             className="order-3 max-w-xs justify-self-start lg:order-1 lg:mb-6 lg:justify-self-end"
           >
-            <div className="rounded-2xl border border-line bg-cream-50 p-5 shadow-soft">
+            <div className="rounded-2xl border border-line-dark bg-ink-800 p-5">
               <div className="flex gap-1">
                 {Array.from({ length: heroStats.rating }).map((_, i) => (
                   <Star
@@ -79,7 +79,7 @@ export default function Hero() {
                   />
                 ))}
               </div>
-              <p className="mt-3 text-sm leading-relaxed text-fg-muted">
+              <p className="mt-3 text-sm leading-relaxed text-fg-inverse-muted">
                 {profile.heroQuote}
               </p>
             </div>
@@ -104,11 +104,11 @@ export default function Hero() {
                   />
                 ))}
               </div>
-              <div className="mt-3 display-h text-5xl text-fg">
+              <div className="mt-3 display-h text-5xl text-fg-inverse">
                 {heroStats.years}{" "}
                 <span className="font-sans text-3xl font-bold">Years</span>
               </div>
-              <p className="mt-1 text-sm text-fg-muted">
+              <p className="mt-1 text-sm text-fg-inverse-muted">
                 {heroStats.yearsLabel}
               </p>
             </div>
@@ -120,19 +120,19 @@ export default function Hero() {
           initial={{ opacity: 0, y: 16 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.8 }}
-          className="mt-12 flex flex-wrap items-center justify-center gap-3"
+          className="mt-12 flex flex-col items-stretch gap-3 px-2 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:px-0"
         >
-          <a href="#projects" className="btn-primary">
+          <a href="#projects" className="btn-primary w-full justify-center sm:w-auto">
             View My Work
             <ArrowUpRight className="h-4 w-4" />
           </a>
-          <a href="#contact" className="btn-secondary">
+          <a href="#contact" className="btn-ghost-dark w-full justify-center sm:w-auto">
             Hire Me
           </a>
           <a
             href={profile.resumeUrl}
             download
-            className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-fg-muted underline-offset-4 hover:text-fg hover:underline"
+            className="inline-flex w-full items-center justify-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-fg-inverse-muted underline-offset-4 hover:text-fg-inverse hover:underline sm:w-auto"
           >
             <Download className="h-4 w-4" />
             Resume
@@ -144,7 +144,7 @@ export default function Hero() {
           initial={{ opacity: 0 }}
           animate={{ opacity: 1 }}
           transition={{ duration: 0.6, delay: 1 }}
-          className="mt-8 flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-fg-dim"
+          className="mt-8 flex items-center justify-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-fg-inverse-muted"
         >
           <MapPin className="h-3.5 w-3.5" />
           {profile.location}
@@ -175,7 +175,7 @@ function PortraitCard() {
         {/* Decorative dashed ring */}
         <div
           aria-hidden
-          className="pointer-events-none absolute inset-0 animate-spin-slow rounded-full border border-dashed border-fg/15"
+          className="pointer-events-none absolute inset-0 animate-spin-slow rounded-full border border-dashed border-fg-inverse/15"
           style={{
             maskImage:
               "linear-gradient(180deg, transparent 40%, black 40%, black 60%, transparent 60%)",
@@ -233,15 +233,15 @@ function FloatBadge({
 }) {
   return (
     <div
-      className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 shadow-soft ${
+      className={`inline-flex items-center gap-2 rounded-full border px-3 py-1.5 ${
         accent
-          ? "border-brand/40 bg-brand/10 text-brand-700"
-          : "border-line bg-cream-50 text-fg"
+          ? "border-brand/40 bg-brand/15 text-brand"
+          : "border-line-dark bg-ink-800 text-fg-inverse"
       } ${className}`}
     >
       <span
         className={`inline-block h-1.5 w-1.5 rounded-full ${
-          accent ? "bg-brand" : "bg-fg/40"
+          accent ? "bg-brand" : "bg-fg-inverse-muted"
         }`}
       />
       <span className="font-mono text-[11px] font-semibold tracking-wide">

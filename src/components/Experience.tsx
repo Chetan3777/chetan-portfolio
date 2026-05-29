@@ -6,9 +6,10 @@ import SectionHeading from "./ui/SectionHeading";
 
 export default function Experience() {
   return (
-    <section id="experience" className="section">
+    <section id="experience" className="section section-dark">
       <div className="max-w-content">
         <SectionHeading
+          variant="dark"
           eyebrow="Experience"
           title={
             <>
@@ -23,7 +24,7 @@ export default function Experience() {
           {/* Vertical spine */}
           <div
             aria-hidden
-            className="pointer-events-none absolute left-[19px] top-2 bottom-2 hidden w-px bg-gradient-to-b from-brand/60 via-line to-transparent md:block"
+            className="pointer-events-none absolute left-[19px] top-2 bottom-2 hidden w-px bg-gradient-to-b from-brand/60 via-line-dark to-transparent md:block"
           />
 
           {experience.map((job, i) => (
@@ -53,15 +54,15 @@ function ExperienceCard({ job, index }: { job: ExperienceItem; index: number }) 
         className={`absolute left-0 top-5 hidden h-10 w-10 items-center justify-center rounded-full md:inline-flex ${
           job.current
             ? "bg-brand text-white shadow-brand-glow"
-            : "border border-line bg-cream-50 text-fg-muted"
+            : "border border-line-dark bg-ink-800 text-fg-inverse-muted"
         }`}
       >
         <Briefcase className="h-4 w-4" />
       </span>
 
       <article
-        className={`card-light overflow-hidden transition-shadow ${
-          open ? "shadow-soft-lg" : "shadow-soft hover:shadow-soft-lg"
+        className={`card-dark overflow-hidden transition-shadow ${
+          open ? "ring-1 ring-brand/30" : "hover:ring-1 hover:ring-line-dark"
         }`}
       >
         {/* Clickable header — always visible */}
@@ -75,7 +76,7 @@ function ExperienceCard({ job, index }: { job: ExperienceItem; index: number }) 
           <header className="flex flex-wrap items-start justify-between gap-4">
             <div className="min-w-0 flex-1">
               <div className="flex flex-wrap items-center gap-3">
-                <h3 className="font-display text-xl text-fg sm:text-2xl">
+                <h3 className="font-display text-xl text-fg-inverse sm:text-2xl">
                   {job.role}
                 </h3>
                 {job.current && (
@@ -88,10 +89,10 @@ function ExperienceCard({ job, index }: { job: ExperienceItem; index: number }) 
                   </span>
                 )}
               </div>
-              <p className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-fg-muted">
-                <span className="font-semibold text-fg">{job.company}</span>
+              <p className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-fg-inverse-muted">
+                <span className="font-semibold text-fg-inverse">{job.company}</span>
                 {job.location ? (
-                  <span className="inline-flex items-center gap-1.5 text-sm text-fg-dim">
+                  <span className="inline-flex items-center gap-1.5 text-sm text-fg-inverse-muted">
                     <MapPin className="h-3.5 w-3.5" />
                     {job.location}
                   </span>
@@ -100,12 +101,12 @@ function ExperienceCard({ job, index }: { job: ExperienceItem; index: number }) 
             </div>
 
             <div className="flex shrink-0 items-center gap-3">
-              <div className="rounded-full border border-line bg-cream-100 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-fg-muted">
+              <div className="rounded-full border border-line-dark bg-ink-700 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-fg-inverse-muted">
                 {job.start} — {job.end}
               </div>
               <span
                 aria-hidden
-                className={`grid h-9 w-9 place-items-center rounded-full border border-line bg-cream-100 text-fg-muted transition-transform duration-300 ${
+                className={`grid h-9 w-9 place-items-center rounded-full border border-line-dark bg-ink-700 text-fg-inverse-muted transition-transform duration-300 ${
                   open ? "rotate-180 border-brand/40 text-brand" : ""
                 }`}
               >
@@ -118,7 +119,7 @@ function ExperienceCard({ job, index }: { job: ExperienceItem; index: number }) 
           {job.tags && job.tags.length > 0 && (
             <div className="mt-4 flex flex-wrap gap-2">
               {job.tags.map((t) => (
-                <span key={t} className="chip">
+                <span key={t} className="chip-dark">
                   {t}
                 </span>
               ))}
@@ -143,12 +144,12 @@ function ExperienceCard({ job, index }: { job: ExperienceItem; index: number }) 
               }}
               className="overflow-hidden"
             >
-              <div className="border-t border-line px-6 py-6 sm:px-7 sm:py-7">
-                <span className="eyebrow">
+              <div className="border-t border-line-dark px-6 py-6 sm:px-7 sm:py-7">
+                <span className="eyebrow-dark">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                   What I delivered
                 </span>
-                <ul className="mt-4 space-y-3 text-[15px] leading-relaxed text-fg sm:text-base">
+                <ul className="mt-4 space-y-3 text-[15px] leading-relaxed text-fg-inverse sm:text-base">
                   {job.bullets.map((b, i) => (
                     <motion.li
                       key={b}

@@ -4,7 +4,7 @@
 
 @layer base {
   :root {
-    color-scheme: light;
+    color-scheme: dark;
   }
 
   html {
@@ -14,16 +14,16 @@
   }
 
   body {
-    @apply bg-cream-100 text-fg font-sans;
+    @apply bg-ink-950 text-fg-inverse font-sans;
     background-image:
-      radial-gradient(1200px 600px at 80% -200px, rgba(242, 106, 31, 0.08), transparent 60%),
-      radial-gradient(800px 500px at -10% 30%, rgba(242, 106, 31, 0.04), transparent 60%);
+      radial-gradient(1200px 600px at 80% -200px, rgba(242, 106, 31, 0.12), transparent 60%),
+      radial-gradient(800px 500px at -10% 30%, rgba(242, 106, 31, 0.06), transparent 60%);
     background-attachment: fixed;
   }
 
   ::selection {
-    background: rgba(242, 106, 31, 0.30);
-    color: #0F0F12;
+    background: rgba(242, 106, 31, 0.35);
+    color: #F5F0E6;
   }
 
   ::-webkit-scrollbar {
@@ -31,14 +31,14 @@
     height: 10px;
   }
   ::-webkit-scrollbar-track {
-    background: #F5F0E6;
+    background: #0A0A0C;
   }
   ::-webkit-scrollbar-thumb {
-    background: #E2D9C4;
+    background: #26262E;
     border-radius: 8px;
   }
   ::-webkit-scrollbar-thumb:hover {
-    background: #C9BFA7;
+    background: #3A3A45;
   }
 
   h1,
@@ -58,6 +58,14 @@
     @apply relative py-24 lg:py-32 container-px;
   }
 
+  .section-dark {
+    @apply bg-ink-900 text-fg-inverse;
+  }
+
+  .section-light {
+    @apply bg-cream-100 text-fg;
+  }
+
   .max-w-content {
     @apply mx-auto max-w-7xl;
   }
@@ -72,7 +80,7 @@
 
   /* ── Pill buttons (signature element) ─────────────────── */
   .btn-pill {
-    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100;
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-ink-900;
   }
 
   .btn-primary {

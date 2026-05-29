@@ -4,11 +4,12 @@ import SectionHeading from "./ui/SectionHeading";
 
 export default function About() {
   return (
-    <section id="about" className="section">
+    <section id="about" className="section section-dark">
       <div className="max-w-content">
         <div className="grid items-start gap-12 lg:grid-cols-[1.15fr_1fr]">
           <div>
             <SectionHeading
+              variant="dark"
               eyebrow="About Me"
               title={
                 <>
@@ -18,7 +19,7 @@ export default function About() {
               }
             />
 
-            <div className="mt-8 space-y-5 text-base leading-relaxed text-fg-muted sm:text-lg">
+            <div className="mt-8 space-y-5 text-base leading-relaxed text-fg-inverse-muted sm:text-lg">
               {profile.bio.map((p, i) => (
                 <motion.p
                   key={i}
@@ -54,13 +55,13 @@ export default function About() {
             transition={{ duration: 0.6 }}
             className="relative"
           >
-            <div className="card-light p-6 shadow-soft sm:p-8">
+            <div className="card-dark p-6 sm:p-8">
               <div className="flex items-center justify-between">
-                <span className="eyebrow">
+                <span className="eyebrow-dark">
                   <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                   Engineering principles
                 </span>
-                <span className="font-mono text-[11px] text-fg-dim">04</span>
+                <span className="font-mono text-[11px] text-fg-inverse-muted">04</span>
               </div>
 
               <ul className="mt-6 space-y-4">
@@ -88,14 +89,14 @@ export default function About() {
                 ].map((p) => (
                   <li
                     key={p.k}
-                    className="flex items-start gap-4 border-t border-line pt-4 first:border-0 first:pt-0"
+                    className="flex items-start gap-4 border-t border-line-dark pt-4 first:border-0 first:pt-0"
                   >
                     <span className="font-mono text-xs font-bold text-brand">
                       {p.k}
                     </span>
                     <div>
-                      <p className="font-semibold text-fg">{p.t}</p>
-                      <p className="mt-0.5 text-sm text-fg-muted">{p.b}</p>
+                      <p className="font-semibold text-fg-inverse">{p.t}</p>
+                      <p className="mt-0.5 text-sm text-fg-inverse-muted">{p.b}</p>
                     </div>
                   </li>
                 ))}
@@ -103,13 +104,13 @@ export default function About() {
             </div>
 
             {/* Education ribbon */}
-            <div className="mt-4 rounded-2xl border border-line bg-cream-50 p-5 shadow-soft">
-              <span className="eyebrow">
+            <div className="mt-4 rounded-2xl border border-line-dark bg-ink-800 p-5">
+              <span className="eyebrow-dark">
                 <span className="h-1.5 w-1.5 rounded-full bg-brand" />
                 Education
               </span>
-              <p className="mt-3 font-semibold text-fg">{education.degree}</p>
-              <p className="mt-1 text-sm text-fg-muted">
+              <p className="mt-3 font-semibold text-fg-inverse">{education.degree}</p>
+              <p className="mt-1 text-sm text-fg-inverse-muted">
                 {education.school}
                 <span className="mx-2 text-fg-dim">·</span>
                 {education.years}
@@ -124,11 +125,11 @@ export default function About() {
 
 function Fact({ label, value }: { label: string; value: string }) {
   return (
-    <div className="rounded-2xl border border-line bg-cream-50 p-4">
-      <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-dim">
+    <div className="rounded-2xl border border-line-dark bg-ink-800 p-4">
+      <dt className="font-mono text-[10px] uppercase tracking-[0.22em] text-fg-inverse-muted">
         {label}
       </dt>
-      <dd className="mt-1 text-sm font-semibold text-fg">{value}</dd>
+      <dd className="mt-1 text-sm font-semibold text-fg-inverse">{value}</dd>
     </div>
   );
 }
