@@ -73,45 +73,47 @@ function ExperienceCard({ job, index }: { job: ExperienceItem; index: number }) 
           aria-controls={contentId}
           className="block w-full p-6 text-left sm:p-7"
         >
-          <header className="flex flex-wrap items-start justify-between gap-4">
-            <div className="min-w-0 flex-1">
-              <div className="flex flex-wrap items-center gap-3">
-                <h3 className="font-display text-xl text-fg-inverse sm:text-2xl">
-                  {job.role}
-                </h3>
-                {job.current && (
-                  <span className="inline-flex items-center gap-1.5 rounded-full bg-brand px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white">
-                    <span className="relative inline-flex h-1.5 w-1.5">
-                      <span className="absolute inset-0 animate-ping rounded-full bg-white/70" />
-                      <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-white" />
-                    </span>
-                    Current
-                  </span>
-                )}
-              </div>
-              <p className="mt-1 flex flex-wrap items-center gap-x-3 gap-y-1 text-fg-inverse-muted">
-                <span className="font-semibold text-fg-inverse">{job.company}</span>
-                {job.location ? (
-                  <span className="inline-flex items-center gap-1.5 text-sm text-fg-inverse-muted">
-                    <MapPin className="h-3.5 w-3.5" />
-                    {job.location}
-                  </span>
-                ) : null}
-              </p>
-            </div>
-
-            <div className="flex shrink-0 items-center gap-3">
-              <div className="rounded-full border border-line-dark bg-ink-700 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-fg-inverse-muted">
-                {job.start} — {job.end}
-              </div>
+          <header className="space-y-3">
+            {/* Row 1: role + expand toggle */}
+            <div className="flex items-start justify-between gap-3">
+              <h3 className="min-w-0 flex-1 font-display text-xl leading-snug text-fg-inverse sm:text-2xl">
+                {job.role}
+              </h3>
               <span
                 aria-hidden
-                className={`grid h-9 w-9 place-items-center rounded-full border border-line-dark bg-ink-700 text-fg-inverse-muted transition-transform duration-300 ${
+                className={`grid h-9 w-9 shrink-0 place-items-center rounded-full border border-line-dark bg-ink-700 text-fg-inverse-muted transition-transform duration-300 ${
                   open ? "rotate-180 border-brand/40 text-brand" : ""
                 }`}
               >
                 <ChevronDown className="h-4 w-4" />
               </span>
+            </div>
+
+            {/* Row 2: status + dates */}
+            <div className="flex flex-wrap items-center gap-2">
+              {job.current && (
+                <span className="inline-flex items-center gap-1.5 rounded-full bg-brand px-2.5 py-0.5 font-mono text-[10px] font-bold uppercase tracking-[0.2em] text-white">
+                  <span className="relative inline-flex h-1.5 w-1.5">
+                    <span className="absolute inset-0 animate-ping rounded-full bg-white/70" />
+                    <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-white" />
+                  </span>
+                  Current
+                </span>
+              )}
+              <span className="rounded-full border border-line-dark bg-ink-700 px-3 py-1 font-mono text-[11px] uppercase tracking-wider text-fg-inverse-muted">
+                {job.start} — {job.end}
+              </span>
+            </div>
+
+            {/* Row 3: company + location */}
+            <div className="space-y-1">
+              <p className="font-semibold text-fg-inverse">{job.company}</p>
+              {job.location ? (
+                <p className="inline-flex items-center gap-1.5 text-sm text-fg-inverse-muted">
+                  <MapPin className="h-3.5 w-3.5 shrink-0" />
+                  {job.location}
+                </p>
+              ) : null}
             </div>
           </header>
 

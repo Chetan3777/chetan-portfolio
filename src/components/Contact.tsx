@@ -67,17 +67,10 @@ export default function Contact() {
                 </a>
               </div>
 
-              <div className="mt-6 flex flex-col items-start gap-3 border-t border-line-dark pt-5 font-mono text-[11px] text-fg-inverse-muted sm:mt-8 sm:flex-row sm:flex-wrap sm:items-center sm:gap-x-6 sm:pt-6">
+              <div className="mt-6 border-t border-line-dark pt-5 font-mono text-[11px] text-fg-inverse-muted sm:mt-8 sm:pt-6">
                 <span className="inline-flex items-center gap-2">
                   <MapPin className="h-3.5 w-3.5 shrink-0" />
                   {profile.location}
-                </span>
-                <span className="inline-flex items-center gap-2">
-                  <span className="relative inline-flex h-1.5 w-1.5 shrink-0">
-                    <span className="absolute inset-0 animate-ping rounded-full bg-emerald-400/70" />
-                    <span className="relative inline-block h-1.5 w-1.5 rounded-full bg-emerald-400" />
-                  </span>
-                  Replies within 24h
                 </span>
               </div>
             </div>
