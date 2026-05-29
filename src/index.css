@@ -1,0 +1,174 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: light;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+
+  body {
+    @apply bg-cream-100 text-fg font-sans;
+    background-image:
+      radial-gradient(1200px 600px at 80% -200px, rgba(242, 106, 31, 0.08), transparent 60%),
+      radial-gradient(800px 500px at -10% 30%, rgba(242, 106, 31, 0.04), transparent 60%);
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(242, 106, 31, 0.30);
+    color: #0F0F12;
+  }
+
+  ::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #F5F0E6;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #E2D9C4;
+    border-radius: 8px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #C9BFA7;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply tracking-tight;
+  }
+}
+
+@layer components {
+  .container-px {
+    @apply px-5 sm:px-8 lg:px-12;
+  }
+
+  .section {
+    @apply relative py-24 lg:py-32 container-px;
+  }
+
+  .max-w-content {
+    @apply mx-auto max-w-7xl;
+  }
+
+  .eyebrow {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-fg-muted;
+  }
+
+  .eyebrow-dark {
+    @apply inline-flex items-center gap-2 font-mono text-[11px] uppercase tracking-[0.22em] text-fg-inverse-muted;
+  }
+
+  /* ── Pill buttons (signature element) ─────────────────── */
+  .btn-pill {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3 text-sm font-semibold transition-all duration-200 focus:outline-none focus-visible:ring-2 focus-visible:ring-brand focus-visible:ring-offset-2 focus-visible:ring-offset-cream-100;
+  }
+
+  .btn-primary {
+    @apply btn-pill bg-brand text-white hover:bg-brand-600 hover:shadow-brand-glow;
+  }
+
+  .btn-secondary {
+    @apply btn-pill border border-fg/15 bg-cream-50 text-fg hover:border-fg/30 hover:bg-cream-200;
+  }
+
+  .btn-dark {
+    @apply btn-pill bg-ink-900 text-fg-inverse hover:bg-ink-800;
+  }
+
+  .btn-ghost-dark {
+    @apply btn-pill border border-line-dark text-fg-inverse hover:bg-ink-800;
+  }
+
+  /* ── Cards ────────────────────────────────────────────── */
+  .card-light {
+    @apply relative rounded-2xl border border-line bg-cream-50 transition-all duration-300;
+  }
+
+  .card-dark {
+    @apply relative rounded-2xl border border-line-dark bg-ink-800 transition-all duration-300;
+  }
+
+  .card-hover {
+    @apply hover:-translate-y-1 hover:shadow-soft-lg;
+  }
+
+  /* ── Chips ────────────────────────────────────────────── */
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line bg-cream-50 px-3 py-1.5 text-[12px] font-medium text-fg-muted transition-colors;
+  }
+  .chip:hover {
+    @apply border-brand/40 text-fg;
+  }
+
+  .chip-brand {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-brand/30 bg-brand/10 px-3 py-1.5 text-[12px] font-semibold text-brand-700;
+  }
+
+  .chip-dark {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-line-dark bg-ink-700/60 px-3 py-1.5 text-[12px] font-medium text-fg-inverse-muted transition-colors;
+  }
+  .chip-dark:hover {
+    @apply border-brand/40 text-fg-inverse;
+  }
+
+  /* ── Subtle dot pattern ───────────────────────────────── */
+  .dot-grid-light {
+    background-image: radial-gradient(rgba(15, 15, 18, 0.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+  .dot-grid-dark {
+    background-image: radial-gradient(rgba(245, 240, 230, 0.08) 1px, transparent 1px);
+    background-size: 22px 22px;
+  }
+
+  /* ── Display heading helper ───────────────────────────── */
+  .display-h {
+    @apply font-display font-normal leading-[0.95] tracking-tight;
+  }
+
+  .italic-accent {
+    @apply italic text-brand;
+  }
+
+  .hairline {
+    @apply h-px w-full bg-line;
+  }
+
+  .hairline-dark {
+    @apply h-px w-full bg-line-dark;
+  }
+}
+
+@layer utilities {
+  .mask-fade-edges {
+    mask-image: radial-gradient(ellipse at center, #000 60%, transparent 90%);
+    -webkit-mask-image: radial-gradient(ellipse at center, #000 60%, transparent 90%);
+  }
+  .mask-fade-b {
+    mask-image: linear-gradient(180deg, #000 60%, transparent);
+    -webkit-mask-image: linear-gradient(180deg, #000 60%, transparent);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
