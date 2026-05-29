@@ -179,7 +179,7 @@ export default function Navbar() {
                 download
                 className="btn-primary mt-6 w-full"
               >
-                Download Résumé
+                Download Resume
               </a>
             </motion.aside>
           </motion.div>

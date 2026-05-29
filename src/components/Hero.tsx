@@ -135,7 +135,7 @@ export default function Hero() {
             className="inline-flex items-center gap-2 rounded-full px-4 py-2.5 text-sm font-medium text-fg-muted underline-offset-4 hover:text-fg hover:underline"
           >
             <Download className="h-4 w-4" />
-            Résumé
+            Resume
           </a>
         </motion.div>
 

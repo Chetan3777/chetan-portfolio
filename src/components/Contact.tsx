@@ -65,7 +65,7 @@ export default function Contact() {
                   download
                   className="btn-ghost-dark"
                 >
-                  Download Résumé
+                  Download Resume
                 </a>
               </div>
 
